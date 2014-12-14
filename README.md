@@ -84,3 +84,6 @@ make sure ChallengeResponseAuthentication is on:
 ```
 ChallengeResponseAuthentication yes
 ```
+
+don't forget to restart ssh after modifying sshd_config (no restart of anything
+needed just to active pam_email)
