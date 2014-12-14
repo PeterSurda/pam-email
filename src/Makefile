@@ -1,3 +1,6 @@
+topdir=$(shell pwd)/..
+include ../Make.Rules
+
 all: pammodule
 
 help:
@@ -5,8 +8,8 @@ help:
 	@echo "To delete object file (*.o) and the executable run 'make clean' "
 
 install: pammodule
-	mkdir -p /lib/security
-	cp -f pam_email.so /lib/security
+	mkdir -p -m 0755 $(LIBDIR)/security
+	install -m 0755 pam_email.so $(LIBDIR)/security
 
 pammodule:
 	gcc -Wall -fPIC -c pam_email.c

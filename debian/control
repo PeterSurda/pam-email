@@ -1,6 +1,7 @@
 Source: pam-email
 Section: libs
 Maintainer: Peter Surda <surda@economicsofbitcoin.com>
+Standards-Version: 3.9.0
 Build-Depends: libcurl-dev, libpam-dev
 
 Package: pam-email
