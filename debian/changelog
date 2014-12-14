@@ -1,0 +1,6 @@
+pam-email (1:0.1.0) trusty; urgency=high
+
+  * Initial release
+
+ -- Peter Surda <surda@economicsofbitcoin.com>  Sun, 15 Dec 2014 12:40:00 +0100
+

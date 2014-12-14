@@ -1,0 +1,9 @@
+Source: pam-email
+Section: libs
+Maintainer: Peter Surda <surda@economicsofbitcoin.com>
+Build-Depends: libcurl-dev, libpam-dev
+
+Package: pam-email
+Architecture: any
+Multi-Arch: same
+Description: Send tokens by email for authentication
