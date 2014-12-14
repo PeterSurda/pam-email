@@ -25,9 +25,11 @@ The token contains only Base58 characters to avoid reading problems.
 
 The email looks like this:
 
->Subject: wWS9eK4s5kDg - authentication request
->
->Authentication request  for root from nobody.nowhere.edu : wWS9eK4s5kDg
+```
+Subject: wWS9eK4s5kDg - authentication request
+
+Authentication request  for root from nobody.nowhere.edu : wWS9eK4s5kDg
+```
 
 If you're wondering why the token is the first word in the subject, that is in
 so that it shows up when you're viewing an abbreviated version of the email,
@@ -41,7 +43,9 @@ authenticate with and the IP address you're connecting from.
 
 In order to compile it, you need pam and curl devel libraries. After you do a
 
-> make install
+```
+make install
+```
 
 it will copy the .so file into /lib/security.
 
@@ -52,23 +56,31 @@ up for all services, but ssh is straightforward.
 For example, in order to use it with ssh, edit /etc/pam.d/sshd and search for
 the auth section, in Ubuntu that's
 
->@include common-auth
+```
+@include common-auth
+```
 
 If you want to add pam_email, i.e. use a two-factor authentication, append
 pam_email like this:
 
->@include common-auth
->auth required pam_email.so
+```
+@include common-auth
+auth required pam_email.so
+```
 
 If you want to replace the standard password prompt only (single-factor
 authentication), prepend pam_email like this:
 
->auth sufficient pam_email.so
->@include common-auth
+```
+auth sufficient pam_email.so
+@include common-auth
+```
 
 # Additional steps for SSH
 
 If you want to use it with ssh, you also need to edit /etc/ssh/sshd_config and
 make sure ChallengeResponseAuthentication is on:
 
->ChallengeResponseAuthentication yes
+```
+ChallengeResponseAuthentication yes
+```
