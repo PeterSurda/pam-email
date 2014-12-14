@@ -21,6 +21,8 @@ The default token length is 12 characters (can be altered in the source).
 
 The token contains only Base58 characters to avoid reading problems.
 
+# What it looks like
+
 The email looks like this:
 
 >Subject: wWS9eK4s5kDg - authentication request
@@ -33,7 +35,15 @@ e.g. from a notification bar on your mobile phone or without opening the email
 in a mail client. It saves time.
 
 Apart from the token, the email contains the username you're trying to
-authenticate with and the IP address you're connecting from
+authenticate with and the IP address you're connecting from.
+
+# How to use it
+
+In order to compile it, you need pam and curl devel libraries. After you do a
+
+> make install
+
+it will copy the .so file into /lib/security.
 
 In order to integrate it, modify your authentication PAM setup (it only
 provides a function for the "auth" part of PAM). You probably shouldn't set it
@@ -55,6 +65,8 @@ authentication), prepend pam_email like this:
 
 >auth sufficient pam_email.so
 >@include common-auth
+
+# Additional steps for SSH
 
 If you want to use it with ssh, you also need to edit /etc/ssh/sshd_config and
 make sure ChallengeResponseAuthentication is on:
